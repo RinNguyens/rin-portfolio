@@ -3,28 +3,30 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/jetbrains-mono";
 @import "@fontsource-variable/roboto";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --background: #eef2f1;
+    --foreground: #17181a;
+    --card: #f8faf9;
+    --card-foreground: #17181a;
+    --popover: #f8faf9;
+    --popover-foreground: #17181a;
+    --primary: #17181a;
+    --primary-foreground: #f8faf9;
+    --secondary: #e2e8e6;
+    --secondary-foreground: #17181a;
+    --muted: #e2e8e6;
+    --muted-foreground: #56605d;
+    --accent: #e2e8e6;
+    --accent-foreground: #17181a;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: #d2dbd8;
+    --input: #d2dbd8;
+    --ring: #626b68;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -39,27 +41,34 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    /* Rin — First Light */
+    --brand: #d1343a;
+    --sea: #0f6f86;
+    --ok: #0d6e3f;
+    --dim: #626b68;
+    --line-2: #bcc8c4;
+    --hatch: rgba(0, 0, 0, 0.06);
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --background: #08090c;
+    --foreground: #ecedf0;
+    --card: #11131a;
+    --card-foreground: #ecedf0;
+    --popover: #11131a;
+    --popover-foreground: #ecedf0;
+    --primary: #ecedf0;
+    --primary-foreground: #08090c;
+    --secondary: #161922;
+    --secondary-foreground: #ecedf0;
+    --muted: #161922;
+    --muted-foreground: #9a9ca5;
+    --accent: #161922;
+    --accent-foreground: #ecedf0;
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --border: #1f222b;
+    --input: #2c303b;
+    --ring: #80838d;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -73,9 +82,22 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    --brand: #ef5b60;
+    --sea: #4fb3c8;
+    --ok: #3dd68c;
+    --dim: #80838d;
+    --line-2: #2c303b;
+    --hatch: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
+    --font-sans: 'Roboto Variable', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --color-brand: var(--brand);
+    --color-sea: var(--sea);
+    --color-ok: var(--ok);
+    --color-dim: var(--dim);
+    --color-line-2: var(--line-2);
     --font-mono: 'JetBrains Mono Variable', monospace;
     --font-heading: 'Roboto Variable', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
@@ -131,4 +153,56 @@
   html {
     @apply font-mono;
     }
+}
+
+/* ================= Rin — portfolio pieces ================= */
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { overflow-x: hidden; transition: background-color .6s, color .6s; }
+  ::selection { background: var(--brand); color: #fff; }
+}
+
+@layer components {
+  /* hatched divider strip with full-bleed lines and + marks at the column edges (samworks-style) */
+  .hatch { background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1px, transparent 1px 8px); }
+  .bleed::before, .bleed::after { content: ""; position: absolute; left: -100vw; right: -100vw; height: 1px; background: var(--border); }
+  .bleed::before { top: -1px; }
+  .bleed::after { bottom: -1px; }
+  .plus { position: absolute; width: 9px; height: 9px; z-index: 1; }
+  .plus::before, .plus::after { content: ""; position: absolute; background: var(--muted-foreground); }
+  .plus::before { left: 4px; top: 0; width: 1px; height: 9px; }
+  .plus::after { top: 4px; left: 0; height: 1px; width: 9px; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s, transform .7s cubic-bezier(.2, .8, .2, 1); }
+  .reveal[data-in] { opacity: 1; transform: none; }
+
+  /* hero: sky/sea gradient while the 3D builds; the photo only if WebGL can't run */
+  /* posters are real frames of the 3D scene (same camera), so the live canvas fades in seamlessly */
+  .scene-bg { background: #2b6f86 url("/assets/coast-day.webp") center / cover no-repeat; }
+  .dark .scene-bg { background: #050912 url("/assets/coast-night.webp") center / cover no-repeat; }
+  @media (max-width: 639px) {
+    .scene-bg { background-image: url("/assets/coast-day-m.webp"); }
+    .dark .scene-bg { background-image: url("/assets/coast-night-m.webp"); }
+  }
+  .scene-bg[data-state="fallback"] { background: #2f4a58 url("/assets/phu-yen.webp") center/cover no-repeat; }
+  .scene-scrim {
+    background: linear-gradient(90deg, rgba(10, 20, 30, .42), rgba(10, 20, 30, .12) 45%, transparent 70%),
+                linear-gradient(rgba(10, 20, 30, .35), transparent 22%);
+  }
+  .scene-fade { background: linear-gradient(transparent, var(--background)); }
+
+  /* busiest contribution days: a soft ring that swells and fades */
+  .hot-cell { z-index: 1; animation: hot-glow 2.6s ease-in-out infinite; }
+  @keyframes hot-glow {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--sea) 0%, transparent); }
+    50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--sea) 35%, transparent), 0 0 10px 2px color-mix(in srgb, var(--sea) 45%, transparent); }
+  }
+
+  .caret { display: inline-block; width: 7px; height: 15px; background: var(--brand); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }
