@@ -188,11 +188,10 @@ function Home() {
         {/* ABOUT */}
         <Section id="about" title="About" idx="01">
           <p className="font-serif text-[27px] leading-[1.25] tracking-tight text-pretty max-sm:text-[23px]">
-            Senior Software Engineer at <span className="text-brand">VPBank</span>. For six years I've turned booking flows,
-            payment journeys and data-heavy dashboards into products people can <em>rely on</em>.
+            I'm having the <em>best time</em> building indie apps, and I'm genuinely excited about what I can make with AI.
           </p>
           <p className="mt-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-            TypeScript, React and Next.js up front, Node.js and PostgreSQL behind. Lately I build AI-enabled workflows. Born in Phú Yên, the easternmost point of Vietnam; now based in Ho Chi Minh City.
+            Born in Phú Yên, the easternmost point of Vietnam.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {LINKS.map(({ label, href, Logo }) => (
