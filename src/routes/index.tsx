@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { createFileRoute } from "@tanstack/react-router"
-import { ArrowDownIcon, ArrowRightIcon, ArrowUpRightIcon, PlayIcon } from "@phosphor-icons/react"
+import { ArrowDownIcon, ArrowRightIcon, ArrowUpRightIcon, EyeIcon, PlayIcon } from "@phosphor-icons/react"
 import { CoastHero } from "@/components/coast-hero"
 import { ContributionSkyline } from "@/components/contribution-skyline"
 import { GlobeBanner } from "@/components/globe-banner"
@@ -34,6 +34,7 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useClock } from "@/hooks/use-clock"
+import { useVisitorCount } from "@/hooks/use-visitor-count"
 import { cn } from "@/lib/utils"
 
 export const Route = createFileRoute("/")({ component: Home })
@@ -151,6 +152,7 @@ function useTyped(words: readonly string[]) {
 function Home() {
   const typed = useTyped(ROLES)
   const clock = useClock("long")
+  const views = useVisitorCount()
   const [stackFilter, setStackFilter] = useState("all")
 
   return (
@@ -356,7 +358,9 @@ function Home() {
         <footer className="px-7 pt-8 pb-10 text-center max-sm:px-4">
           <p className="font-serif text-[22px] text-muted-foreground italic">“The sun rises here first. So can good work.”</p>
           <p className="mt-2 text-[11px] tracking-widest text-dim">— RIN NG</p>
-          <div className="mt-8 flex justify-between text-[11px] text-dim"><span>© 2026 Rin Ng</span><span>Designed & built in Ho Chi Minh City</span></div>
+          <div className="mt-8 flex justify-between text-[11px] text-dim"><span>© 2026 Rin Ng</span>
+            <span className="inline-flex items-center gap-1 tabular-nums" title="People who have visited this site"><EyeIcon className="size-3.5" />{views === null ? "2,000+" : views.toLocaleString("en-US")} views</span>
+            <span>Designed & built in Ho Chi Minh City</span></div>
         </footer>
       </main>
     </>
