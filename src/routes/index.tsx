@@ -88,6 +88,14 @@ const PROJECTS = [
       { src: "/assets/work/horsemoon-3d.mp4", poster: "/assets/work/horsemoon-3d.jpg", label: "3D orb hero" },
     ],
   },
+  {
+    title: "rinng", href: "https://github.com/RinNguyens/rinng", kind: "Open source · quant toolkit",
+    text: "An open-source quant analysis toolkit for crypto USDT perpetuals on Binance and OKX: a 24/7 data pipeline, Smart Money Concepts, forecasting, backtesting and a realtime dashboard. It only analyzes, it never places orders.",
+    tags: ["Python", "DuckDB", "React", "WebSocket", "Pine Script"], portrait: true,
+    videos: [
+      { src: "/assets/work/rinng-promo.mp4", poster: "/assets/work/rinng-promo.jpg", label: "Promo with voiceover" },
+    ],
+  },
   { title: "Hi Nha Trang Stay", href: "https://hinhatrangstay.com/", kind: "Web · hospitality", text: "A website for a stay in Nha Trang, built to make browsing rooms and booking simple.", tags: ["Web", "Booking"], cover: "linear-gradient(135deg,#0f6f86,#7fd3c8)" },
   { title: "Globe · GlobeOne", href: "https://www.globe.com.ph/", kind: "Telecom · 15M MAU", text: "Frontend for GlobeOne, Globe Telecom's app: accounts, billing, promotions, rewards and the shared mobile data pool.", tags: ["Frontend", "Telecom"], banner: true },
 ]
@@ -306,8 +314,19 @@ function Home() {
         <Section id="work" title={<>Selected <em>work</em></>} idx="05">
           <div className="grid grid-cols-2 gap-3.5 max-sm:grid-cols-1">
             {PROJECTS.map((p, i) => (
-              <article key={p.title} className={cn("group flex flex-col overflow-hidden border bg-card transition-[border-color,translate] duration-300 hover:-translate-y-[3px] hover:border-line-2", i === 0 && "col-span-2 max-sm:col-span-1")}>
-                {p.videos ? (
+              <article key={p.title} className={cn("group flex flex-col overflow-hidden border bg-card transition-[border-color,translate] duration-300 hover:-translate-y-[3px] hover:border-line-2", (i === 0 || p.portrait) && "col-span-2 max-sm:col-span-1", p.portrait && "sm:flex-row")}>
+                {p.videos && p.portrait ? (
+                  <div className="shrink-0 bg-black sm:w-[250px]">
+                    {p.videos.map(v => (
+                      <figure key={v.src} className="relative mx-auto aspect-[9/16] overflow-hidden max-sm:w-2/3">
+                        <video src={v.src} poster={v.poster} autoPlay muted loop playsInline preload="metadata" controls className="size-full object-cover" />
+                        <figcaption className="absolute top-2 left-2 inline-flex items-center gap-1 bg-black/60 px-1.5 py-0.5 text-[11px] text-white backdrop-blur">
+                          <PlayIcon weight="fill" className="size-3" />{v.label}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                ) : p.videos ? (
                   <div className="grid grid-cols-2 gap-px bg-border max-sm:grid-cols-1">
                     {p.videos.map(v => (
                       <figure key={v.src} className="relative aspect-[16/10] overflow-hidden bg-black">
