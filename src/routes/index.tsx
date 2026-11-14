@@ -170,9 +170,14 @@ function Home() {
             <div className="min-w-0 flex-1 pb-1.5">
               <h1 className="font-serif text-[50px] leading-none tracking-tight max-sm:text-[40px]">Rin Ng</h1>
               <p className="mt-1.5 min-h-[22px] text-sm text-muted-foreground">{typed}<span className="caret" /></p>
-              <Badge variant="outline" className="mt-2 border-ok/40 bg-ok/10 text-ok">
-                <span className="size-1.5 rounded-full bg-ok" /> Senior SWE @ VPBank
-              </Badge>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <Badge variant="outline" className="border-ok/40 bg-ok/10 text-ok">
+                  <span className="size-1.5 rounded-full bg-ok" /> Senior SWE @ VPBank
+                </Badge>
+                <Badge variant="outline" className="text-muted-foreground tabular-nums" title="People who have visited this site">
+                  <EyeIcon /> {views === null ? "2,000+" : views.toLocaleString("en-US")} views
+                </Badge>
+              </div>
             </div>
           </div>
           <dl className="mt-7 grid grid-cols-3 border max-sm:grid-cols-1">
@@ -358,9 +363,7 @@ function Home() {
         <footer className="px-7 pt-8 pb-10 text-center max-sm:px-4">
           <p className="font-serif text-[22px] text-muted-foreground italic">“The sun rises here first. So can good work.”</p>
           <p className="mt-2 text-[11px] tracking-widest text-dim">— RIN NG</p>
-          <div className="mt-8 flex justify-between text-[11px] text-dim"><span>© 2026 Rin Ng</span>
-            <span className="inline-flex items-center gap-1 tabular-nums" title="People who have visited this site"><EyeIcon className="size-3.5" />{views === null ? "2,000+" : views.toLocaleString("en-US")} views</span>
-            <span>Designed & built in Ho Chi Minh City</span></div>
+          <div className="mt-8 flex justify-between text-[11px] text-dim"><span>© 2026 Rin Ng</span><span>Designed & built in Ho Chi Minh City</span></div>
         </footer>
       </main>
     </>
