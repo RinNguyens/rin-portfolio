@@ -89,6 +89,14 @@ const PROJECTS = [
     ],
   },
   {
+    title: "odomakasePlus", href: "https://odomakaseplus.vercel.app", kind: "Web game · 3D multiplayer",
+    text: "A multiplayer 3D web game: walk a miniature Hanoi street, stop for a balcony singer, then take a seat at a five-star omakase counter while chef Ōdō-san serves a 15-course set. Voice chat, private rooms, a bar, quizzes and a voiced story. Every building, dish and character is generated in code.",
+    tags: ["React Three Fiber", "TanStack Start", "Colyseus", "LiveKit", "ElevenLabs"], portrait: true,
+    videos: [
+      { src: "/assets/work/odomakaseplus-promo.mp4", poster: "/assets/work/odomakaseplus-promo.jpg", label: "Gameplay promo" },
+    ],
+  },
+  {
     title: "rinng", href: "https://github.com/RinNguyens/rinng", kind: "Open source · quant toolkit",
     text: "An open-source quant analysis toolkit for crypto USDT perpetuals on Binance and OKX: a 24/7 data pipeline, Smart Money Concepts, forecasting, backtesting and a realtime dashboard. It only analyzes, it never places orders.",
     tags: ["Python", "DuckDB", "React", "WebSocket", "Pine Script"], portrait: true,
